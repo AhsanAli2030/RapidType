@@ -66,7 +66,7 @@ const Header = () => {
           <div className="text-[#ffffff] text-4xl roboto ml-2"> Rapidtype</div>
         </div>
 
-        <div className="flex  w-[40%] align-center justify-around text-3xl text-[#ffffff] roboto ">
+        <div className="flex  w-[40%] align-center justify-around text-3xl text-[#ffffff] roboto  pr-[3%]">
           <div
             className={` clickable-div relative border-4 w-52 h-12 text-center border-[#EE6056] hover:bg-[#EE6056] rounded-lg cursor-pointer duration-500 hover:text-[110%] ${
               hoverDifficultyLevel === true ? "bg-[#EE6056] text-[110%]" : ""

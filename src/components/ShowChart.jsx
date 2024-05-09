@@ -3,6 +3,7 @@ import { Line, Bar } from "react-chartjs-2";
 import BarChart from "../assets/bar-chart.png";
 import LineChart from "../assets/line-chart.png";
 import gitHub from "../assets/code.png";
+import { Link } from "react-router-dom";
 import retry from "../assets/002-refresh.png";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -265,12 +266,14 @@ const ShowChart = (props) => {
         </div>
 
         <div className="w-full h-[15%] ">
-          <img
-            title="Source-Code"
-            src={gitHub}
-            alt=""
-            className=" w-1/2 h-auto hover:w-[60%] duration-300 cursor-pointer"
-          />
+          <Link to="https://github.com/AhsanAli2030/RapidType">
+            <img
+              title="Source-Code"
+              src={gitHub}
+              alt=""
+              className=" w-1/2 h-auto hover:w-[60%] duration-300 cursor-pointer"
+            />
+          </Link>
         </div>
 
         <div className="w-[80%] h-[15%] flex items-center ">
