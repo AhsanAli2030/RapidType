@@ -7,7 +7,6 @@ import { Canvas } from "@react-three/fiber";
 import { BakeShadows, OrbitControls, Stage } from "@react-three/drei";
 import Keyboard from "./Keyboard";
 import { useDispatch } from "react-redux";
-import Jump from "./Jump";
 
 var paragraph_1_medium =
   "Discovering new things can be both thrilling and rewarding. When you engage in learning, your brain becomes more adept and resilient. There are numerous pathways to acquire knowledge, such as reading books, seeking answers to questions, or watching informative videos. Different individuals possess unique learning preferences; some thrive when actively participating in hands-on experiences, while others absorb information more effectively through verbal explanations. Its essential to identify the learning method that suits you best. Remember, everyone learns at their own pace, so its completely normal if certain concepts take time to grasp. Persevere in your efforts and embrace the valuable lessons learned from mistakes, as they serve as stepping stones in your educational journey. Envision your brain as a muscle—the more you exercise it, the stronger it becomes. Challenge yourself to broaden your horizons each day, whether its by mastering a new vocabulary word, refining a skill, or uncovering fascinating facts about the world. Revel in the process of intellectual growth and self-improvement. Over time, you will be amazed at the vast expanse of knowledge you have accumulated and the progress you have made. Stay curious, keep exploring, and remain open to the endless possibilities waiting to be discovered! With determination and a thirst for knowledge, you will embark on an enriching journey of lifelong learning.Maintaining a healthy lifestyle is essential for overall well-being. It involves making wise choices regarding nutrition, exercise, sleep, and stress management. Eating a balanced diet rich in fruits, vegetables, lean proteins, and whole grains provides the body with essential nutrients to function optimally. Regular physical activity not only helps in maintaining a healthy weight but also improves cardiovascular health, boosts mood, and reduces the risk of chronic diseases like diabetes and hypertension. Adequate sleep is crucial for the body to rest and rejuvenate, promoting better cognitive function and emotional well-being. Managing stress through relaxation techniques such as meditation, deep breathing, or engaging in hobbies can significantly improve mental health and overall quality of life. Developing these healthy habits requires dedication and consistency but yields long-term benefits for both physical and mental health. By prioritizing wellness and adopting a holistic approach to health, individuals can enjoy a higher quality of life and reduce the risk of illness and disease.Protecting the environment is vital for the sustainability of our planet and future generations. It involves taking actions to reduce pollution, conserve natural resources, and preserve biodiversity. Simple everyday practices such as reducing, reusing, and recycling can significantly decrease waste production and lessen the strain on landfills. Conserving water by fixing leaks, using water-saving appliances, and practicing mindful consumption helps ensure access to clean water for all beings. Switching to renewable energy sources like solar or wind power reduces reliance on fossil fuels, mitigating climate change and its detrimental effects on the environment. Preserving natural habitats and supporting conservation efforts for endangered species helps maintain biodiversity and ecological balance. Engaging in community clean-up initiatives and advocating for environmentally-friendly policies can create positive change on a larger scale. By making conscious choices and taking collective action, individuals can contribute to the protection and preservation of our precious planet Earth.Understanding how to manage money effectively is crucial for financial stability and security. Financial literacy encompasses knowledge and skills related to budgeting, saving, investing, and debt management. Creating a budget helps track income and expenses, enabling individuals to prioritize spending and save for future goals. Building an emergency fund provides a financial safety net for unexpected expenses or emergencies, reducing reliance on credit and avoiding debt accumulation. Learning about different investment options such as stocks, bonds, and mutual funds can help grow wealth over time and achieve long-term financial goals like retirement. Managing debt responsibly by making timely payments and avoiding high-interest loans prevents financial strain and improves creditworthiness. Educating oneself about financial concepts like interest rates, inflation, and risk diversification empowers individuals to make informed decisions about their money. Teaching children about money management from a young age instills healthy financial habits and prepares them for financial independence in adulthood. By prioritizing financial education and adopting prudent financial practices, individuals can build a strong foundation for financial well-being and achieve financial freedom.";
@@ -57,7 +56,7 @@ const MainPart = () => {
 
   useEffect(() => {
     inputRef.current.focus();
-  }, [isLoaded, isLoadedJump]);
+  }, [isLoaded]);
   const [isTimer, setisTimer] = useState(true);
 
   const [isTimerForTrigger, setisTimerForTrigger] = useState(false); // const [nextLine, setnextLine] = useState(false);
@@ -103,6 +102,7 @@ const MainPart = () => {
       setuseEffectRun(true);
     }
   }, [countdownSecs]);
+
   useEffect(() => {
     if (check === "") {
     } else if (check === "elementary") {
@@ -166,6 +166,11 @@ const MainPart = () => {
       seteachsecWrongIndexes([]);
       setstopCountdown(false);
       setinitialTriggerzero(false);
+
+      const forClick = document.getElementById("toClickJust");
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 10);
     }
   }, [check]);
 
@@ -298,21 +303,21 @@ const MainPart = () => {
 
     let divUpp = document.getElementById("divUp");
 
-    if (charIndex === 40 && !jumpScrollbar[0]) {
+    if (charIndex >= 40 && !jumpScrollbar[0]) {
       setjumpScrollbar(!jumpScrollbar[0]);
       divUpp.classList.remove("overflow-hidden");
       divUpp.classList.add("overflow-auto");
       scrollbarRefrence.current.scrollTop += 36;
       divUpp.classList.remove("overflow-auto");
       divUpp.classList.add("overflow-hidden");
-    } else if (charIndex === 80 && !jumpScrollbar[1]) {
+    } else if (charIndex >= 80 && !jumpScrollbar[1]) {
       setjumpScrollbar(!jumpScrollbar[1]);
       divUpp.classList.remove("overflow-hidden");
       divUpp.classList.add("overflow-auto");
       scrollbarRefrence.current.scrollTop += 36;
       divUpp.classList.remove("overflow-auto");
       divUpp.classList.add("overflow-hidden");
-    } else if (charIndex === 120 && !jumpScrollbar[2]) {
+    } else if (charIndex >= 120 && !jumpScrollbar[2]) {
       setjumpScrollbar(!jumpScrollbar[2]);
       divUpp.classList.remove("overflow-hidden");
       divUpp.classList.add("overflow-auto");
@@ -326,29 +331,78 @@ const MainPart = () => {
       scrollbarRefrence.current.scrollTop += 36;
       divUpp.classList.remove("overflow-auto");
       divUpp.classList.add("overflow-hidden");
-    } else if (charIndex === 200 && !jumpScrollbar[4]) {
+    } else if (charIndex >= 200 && !jumpScrollbar[4]) {
       setjumpScrollbar(!jumpScrollbar[4]);
       divUpp.classList.remove("overflow-hidden");
       divUpp.classList.add("overflow-auto");
       scrollbarRefrence.current.scrollTop += 36;
       divUpp.classList.remove("overflow-auto");
       divUpp.classList.add("overflow-hidden");
-    } else if (charIndex === 240 && !jumpScrollbar[5]) {
+    } else if (charIndex >= 240 && !jumpScrollbar[5]) {
       setjumpScrollbar(!jumpScrollbar[5]);
       divUpp.classList.remove("overflow-hidden");
       divUpp.classList.add("overflow-auto");
       scrollbarRefrence.current.scrollTop += 36;
       divUpp.classList.remove("overflow-auto");
       divUpp.classList.add("overflow-hidden");
-    } else if (charIndex === 280 && !jumpScrollbar[6]) {
+    } else if (charIndex >= 280 && !jumpScrollbar[6]) {
       setjumpScrollbar(!jumpScrollbar[6]);
       divUpp.classList.remove("overflow-hidden");
       divUpp.classList.add("overflow-auto");
       scrollbarRefrence.current.scrollTop += 36;
       divUpp.classList.remove("overflow-auto");
       divUpp.classList.add("overflow-hidden");
-    } else if (charIndex === 320 && !jumpScrollbar[7]) {
+    } else if (charIndex >= 320 && !jumpScrollbar[7]) {
       setjumpScrollbar(!jumpScrollbar[7]);
+      divUpp.classList.remove("overflow-hidden");
+      divUpp.classList.add("overflow-auto");
+      scrollbarRefrence.current.scrollTop += 36;
+      divUpp.classList.remove("overflow-auto");
+      divUpp.classList.add("overflow-hidden");
+    } else if (charIndex >= 360 && !jumpScrollbar[8]) {
+      setjumpScrollbar(!jumpScrollbar[8]);
+      divUpp.classList.remove("overflow-hidden");
+      divUpp.classList.add("overflow-auto");
+      scrollbarRefrence.current.scrollTop += 36;
+      divUpp.classList.remove("overflow-auto");
+      divUpp.classList.add("overflow-hidden");
+    } else if (charIndex >= 400 && !jumpScrollbar[9]) {
+      setjumpScrollbar(!jumpScrollbar[9]);
+      divUpp.classList.remove("overflow-hidden");
+      divUpp.classList.add("overflow-auto");
+      scrollbarRefrence.current.scrollTop += 36;
+      divUpp.classList.remove("overflow-auto");
+      divUpp.classList.add("overflow-hidden");
+    } else if (charIndex >= 440 && !jumpScrollbar[10]) {
+      setjumpScrollbar(!jumpScrollbar[10]);
+      divUpp.classList.remove("overflow-hidden");
+      divUpp.classList.add("overflow-auto");
+      scrollbarRefrence.current.scrollTop += 36;
+      divUpp.classList.remove("overflow-auto");
+      divUpp.classList.add("overflow-hidden");
+    } else if (charIndex >= 480 && !jumpScrollbar[11]) {
+      setjumpScrollbar(!jumpScrollbar[11]);
+      divUpp.classList.remove("overflow-hidden");
+      divUpp.classList.add("overflow-auto");
+      scrollbarRefrence.current.scrollTop += 36;
+      divUpp.classList.remove("overflow-auto");
+      divUpp.classList.add("overflow-hidden");
+    } else if (charIndex >= 520 && !jumpScrollbar[12]) {
+      setjumpScrollbar(!jumpScrollbar[12]);
+      divUpp.classList.remove("overflow-hidden");
+      divUpp.classList.add("overflow-auto");
+      scrollbarRefrence.current.scrollTop += 36;
+      divUpp.classList.remove("overflow-auto");
+      divUpp.classList.add("overflow-hidden");
+    } else if (charIndex >= 560 && !jumpScrollbar[13]) {
+      setjumpScrollbar(!jumpScrollbar[13]);
+      divUpp.classList.remove("overflow-hidden");
+      divUpp.classList.add("overflow-auto");
+      scrollbarRefrence.current.scrollTop += 36;
+      divUpp.classList.remove("overflow-auto");
+      divUpp.classList.add("overflow-hidden");
+    } else if (charIndex >= 600 && !jumpScrollbar[14]) {
+      setjumpScrollbar(!jumpScrollbar[14]);
       divUpp.classList.remove("overflow-hidden");
       divUpp.classList.add("overflow-auto");
       scrollbarRefrence.current.scrollTop += 36;
@@ -386,68 +440,11 @@ const MainPart = () => {
     if (e.key === " ") {
       dispatch({ type: "JUMP" });
 
-      const cursorPosition = e.target.selectionStart;
-
-      var nextSpaceIndex = characters.indexOf(" ", cursorPosition);
-
-      setCharIndex(nextSpaceIndex);
-      var counter = 0;
-      var counternextSpaceIndex = nextSpaceIndex;
-      while (characters[counternextSpaceIndex + 1] != " ") {
-        counter++;
-        counternextSpaceIndex++;
+      let spaceTillNext = 0;
+      while (characters[charIndex + spaceTillNext] !== " ") {
+        spaceTillNext = spaceTillNext + 1;
       }
-
-      const textArea = document.getElementById("myTextarea");
-
-      for (let i = 0; i < nextSpaceIndex - cursorPosition; i++) {
-        textArea.value = textArea.value + " ";
-      }
-
-      if (
-        (cursorPosition < 40 && nextSpaceIndex > 40) ||
-        (nextSpaceIndex < 40 && nextSpaceIndex + counter > 40)
-      ) {
-        textArea.value = textArea.value + "\n";
-        e.preventDefault();
-        setCharIndex(nextSpaceIndex + 1);
-      } else if (
-        (cursorPosition < 80 && nextSpaceIndex > 80) ||
-        (nextSpaceIndex < 80 && nextSpaceIndex + counter > 80)
-      ) {
-        textArea.value = textArea.value + "\n";
-        e.preventDefault();
-        setCharIndex(nextSpaceIndex + 1);
-      } else if (
-        (cursorPosition < 120 && nextSpaceIndex > 120) ||
-        (nextSpaceIndex < 120 && nextSpaceIndex + counter > 120)
-      ) {
-        textArea.value = textArea.value + "\n";
-        e.preventDefault();
-        setCharIndex(nextSpaceIndex + 1);
-      } else if (
-        (cursorPosition < 160 && nextSpaceIndex > 160) ||
-        (nextSpaceIndex < 160 && nextSpaceIndex + counter > 160)
-      ) {
-        textArea.value = textArea.value + "\n";
-        e.preventDefault();
-        setCharIndex(nextSpaceIndex + 1);
-        scrollbarRefrence.current.scrollTop += 36;
-      } else if (
-        (cursorPosition < 200 && nextSpaceIndex > 200) ||
-        (nextSpaceIndex < 200 && nextSpaceIndex + counter > 200)
-      ) {
-        textArea.value = textArea.value + "\n";
-        e.preventDefault();
-        setCharIndex(nextSpaceIndex + 1);
-      } else if (
-        (cursorPosition < 240 && nextSpaceIndex > 240) ||
-        (nextSpaceIndex < 240 && nextSpaceIndex + counter > 240)
-      ) {
-        textArea.value = textArea.value + "\n";
-        e.preventDefault();
-        setCharIndex(nextSpaceIndex + 1);
-      }
+      setCharIndex(charIndex + spaceTillNext);
     }
     if (e.key === "Enter") {
       e.preventDefault();
@@ -523,10 +520,10 @@ const MainPart = () => {
             )}
 
             <div className="w-full h-[50%] flex gap-x-[3%] ">
-              <div className=" w-[30%]  mt-[-5%] ">
-                <Canvas camera={{ position: [-170, 50, 150], fov: 40 }}>
+              <div className=" w-[30%]  h-[180%] mt-[-15%] " id="toClickJust">
+                <Canvas camera={{ position: [-190, 40, 150], fov: 40 }}>
                   <Stage environment="city" intensity={0.9}>
-                    <Keyboard position={[0, -0.9, 1]} scale={[1, 1, 1]} />
+                    <Keyboard position={[0, 0, 100]} scale={[0.5, 0.5, 0.5]} />
                   </Stage>
 
                   <BakeShadows />
@@ -588,41 +585,6 @@ const MainPart = () => {
                     ))}
                   </>
                 )}
-              </div>
-
-              <div className=" w-[30%]  mt-[-5%]  flex flex-col items-center justify-center roboto text-4xl font-bold text-[#ffffff] gap-y-[4%]">
-                <span>
-                  Press{" "}
-                  <span
-                    className={` duration-500   ${
-                      check === "JUMP" ? "text-[#1FC8C5]" : "text-[#EE6056]"
-                    }`}
-                  >
-                    Space-Bar
-                  </span>{" "}
-                  to
-                </span>
-                <div className="w-[80%] ">
-                  <Canvas camera={{ position: [150, 0, 150], fov: 40 }}>
-                    <Stage environment="city" intensity={0.9}>
-                      <Jump position={[0, -0.9, 0]} scale={[1, 1, 1]} />
-                    </Stage>
-
-                    <BakeShadows />
-                    <OrbitControls
-                      enableZoom={false}
-                      enablePan={false}
-                      // enableRotate={false}
-                    />
-                  </Canvas>
-                </div>
-                <span
-                  className={` duration-500   ${
-                    check === "JUMP" ? "text-[#1FC8C5]" : "text-[#EE6056]"
-                  }`}
-                >
-                  Words
-                </span>
               </div>
             </div>
           </>

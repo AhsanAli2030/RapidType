@@ -9,11 +9,11 @@ Title: Keyboardist Robot
 
 import React, { useRef, useEffect, useState } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { useDispatch } from "react-redux";
+
 import { useSelector } from "react-redux";
 export default function Keyboard(props) {
   const check = useSelector((store) => store.check);
-  const dispatch = useDispatch();
+
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/keyboardist_robot.glb");
   const { animations: typing } = useGLTF("/keyboardist_robot.glb");
@@ -25,12 +25,6 @@ export default function Keyboard(props) {
     }
   }, [check]);
 
-  useEffect(() => {
-    // Check if nodes and materials are loaded
-    if (nodes && materials) {
-      dispatch({ type: "keyboardLoaded" });
-    }
-  }, [nodes, materials]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
@@ -171,9 +165,9 @@ export default function Keyboard(props) {
                 </group>
                 <group
                   name="Teclado-Piano"
-                  position={[0, 0, 698.375]}
+                  position={[0, 100, 698.375]}
                   rotation={[Math.PI / 2, 0, 0]}
-                  scale={1.902}
+                  scale={1.702}
                 >
                   <mesh
                     name="Teclado-Piano_palette003_0"

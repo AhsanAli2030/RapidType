@@ -4,11 +4,19 @@ import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import counterStore from "./Store/mainStore.js";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={counterStore}>
-    <App />
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
   </Provider>
-
-  
 );
-

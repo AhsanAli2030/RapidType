@@ -5,6 +5,8 @@ import Intermediate from "../assets/Intermediate.png";
 import Elementary from "../assets/Elementary.png";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -53,9 +55,9 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-full h-[10%] flex items-center justify-around">
+      <div className="w-full h-[10%] flex items-center justify-around ">
         <div
-          className="w-16 flex items-center justify-between cursor-pointer"
+          className="w-16 flex items-center justify-between cursor-pointer "
           onClick={() => {
             dispatch({ type: "RETRY" });
           }}
@@ -64,7 +66,7 @@ const Header = () => {
           <div className="text-[#ffffff] text-4xl roboto ml-2"> Rapidtype</div>
         </div>
 
-        <div className="flex  w-1/2 align-center justify-around text-3xl text-[#ffffff] roboto ">
+        <div className="flex  w-[40%] align-center justify-around text-3xl text-[#ffffff] roboto ">
           <div
             className={` clickable-div relative border-4 w-52 h-12 text-center border-[#EE6056] hover:bg-[#EE6056] rounded-lg cursor-pointer duration-500 hover:text-[110%] ${
               hoverDifficultyLevel === true ? "bg-[#EE6056] text-[110%]" : ""
@@ -124,20 +126,21 @@ const Header = () => {
               </div>
             )}
           </div>
-
-          <div
-            className={`border-4 w-52 h-12 text-center border-[#EE6056] rounded-lg cursor-pointer hover:bg-[#EE6056] duration-300   hover:text-[110%] ${
-              buttonsChangePG === true ? "bg-[#EE6056] text-[110%]" : ""
-            }`}
-            onClick={() => {
-              setbuttonsChangePG(true);
-              setbuttonsChangeDL(false);
-              setbuttonsChangeA(false);
-            }}
-          >
-            Play Game{" "}
-          </div>
-          <div
+          <Link to="https://typenpop.netlify.app/">
+            <div
+              className={`border-4 w-52 h-12 text-center border-[#EE6056] rounded-lg cursor-pointer hover:bg-[#EE6056] duration-300   hover:text-[110%] ${
+                buttonsChangePG === true ? "bg-[#EE6056] text-[110%]" : ""
+              }`}
+              onClick={() => {
+                setbuttonsChangePG(true);
+                setbuttonsChangeDL(false);
+                setbuttonsChangeA(false);
+              }}
+            >
+              Play Game{" "}
+            </div>
+          </Link>
+          {/* <div
             className={`border-4 w-52 h-12 text-center border-[#EE6056] rounded-lg cursor-pointer hover:bg-[#EE6056] hover:text-[110%] duration-300 ${
               buttonsChangeA === true ? "text-[110%] bg-[#EE6056]" : ""
             }`}
@@ -148,7 +151,7 @@ const Header = () => {
             }}
           >
             About
-          </div>
+          </div> */}
         </div>
       </div>
     </>
