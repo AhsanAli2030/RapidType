@@ -21,3 +21,12 @@
 .animate-blink {
   animation: blink 1.3s infinite; /* blink every second */
 }
+
+.settingProperties{
+  width: 764px;
+  height: 175px;
+  min-width: 764px;
+  min-height: 175px;
+  max-width: 764px;
+  max-height:  175px;
+}

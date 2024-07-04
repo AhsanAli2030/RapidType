@@ -60,33 +60,29 @@ const Panel = () => {
       <div className="w-full h-[10%] flex justify-center ">
         <div className="w-[60%] h-[100%]   bg-[#27292e] flex justify-around items-center text-center text-[#ffffff] text-2xl roboto rounded-lg">
           <div
-            className={` ${
-              check === "punctuation" ? "text-[#1fc8c5]" : ""
-            }  cursor-pointer hover:text-[#1fc8c5] duration-300`}
+            className={` ${check === "punctuation" ? "text-[#1fc8c5]" : ""
+              }  cursor-pointer hover:text-[#1fc8c5] duration-300`}
             onClick={handlePunctuation}
           >
             @ Punctuation
           </div>
           <div
-            className={` ${
-              check === "numbers" ? "text-[#1fc8c5]" : ""
-            }   cursor-pointer hover:text-[#1fc8c5] duration-300`}
+            className={` ${check === "numbers" ? "text-[#1fc8c5]" : ""
+              }   cursor-pointer hover:text-[#1fc8c5] duration-300`}
             onClick={handleNumbers}
           >
             Numbers
           </div>
           <div
-            className={`  ${
-              check === "scharacters" ? "text-[#1fc8c5]" : ""
-            }   cursor-pointer hover:text-[#1fc8c5] duration-300`}
+            className={`  ${check === "scharacters" ? "text-[#1fc8c5]" : ""
+              }   cursor-pointer hover:text-[#1fc8c5] duration-300`}
             onClick={handleSpecialCharacters}
           >
             % Special Characters
           </div>
           <div
-            className={`cursor-pointer flex items-center justify-between  ${
-              isClicked === true ? "w-[30%]" : ""
-            } `}
+            className={`cursor-pointer flex items-center justify-between  ${isClicked === true ? "w-[30%]" : ""
+              } `}
             onClick={clockClicked}
             onMouseEnter={handleMouseEnterClock}
             onMouseLeave={handleMouseLeaveClock}
@@ -106,33 +102,29 @@ const Panel = () => {
                 {" "}
                 <div className="text-4xl">|</div>
                 <div
-                  className={`roboto hover:text-[#1fc8c5] duration-300   ${
-                    check === "fifteenSecs" ? "text-[#1fc8c5]" : ""
-                  }`}
+                  className={`roboto hover:text-[#1fc8c5] duration-300   ${check === "fifteenSecs" ? "text-[#1fc8c5]" : ""
+                    }`}
                   onClick={fifteenSecs}
                 >
                   15
                 </div>
                 <div
-                  className={`roboto hover:text-[#1fc8c5] duration-300  ${
-                    check === "thirtySecs" ? "text-[#1fc8c5]" : ""
-                  } `}
+                  className={`roboto hover:text-[#1fc8c5] duration-300  ${check === "thirtySecs" ? "text-[#1fc8c5]" : ""
+                    } `}
                   onClick={thirtySecs}
                 >
                   30
                 </div>
                 <div
-                  className={`roboto hover:text-[#1fc8c5] duration-300  ${
-                    check === "fourtySecs" ? "text-[#1fc8c5]" : ""
-                  } `}
+                  className={`roboto hover:text-[#1fc8c5] duration-300  ${check === "fourtySecs" ? "text-[#1fc8c5]" : ""
+                    } `}
                   onClick={fourtySecs}
                 >
                   45
                 </div>
                 <div
-                  className={`roboto hover:text-[#1fc8c5] duration-300  ${
-                    check === "fiftySecs" ? "text-[#1fc8c5]" : ""
-                  } `}
+                  className={`roboto hover:text-[#1fc8c5] duration-300  ${check === "fiftySecs" ? "text-[#1fc8c5]" : ""
+                    } `}
                   onClick={fiftySecs}
                 >
                   60

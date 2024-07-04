@@ -537,9 +537,10 @@ const MainPart = () => {
               <div
                 ref={scrollbarRefrence}
                 id="divUp"
-                className={`w-[40%] relative  text-start text-mono  h-[45%]  text-[#9b9999]   text-3xl   overflow-hidden font-mono  `}
+                className={`settingProperties relative  text-start text-mono   text-[#9b9999]   text-3xl   overflow-hidden font-mono  `}
               >
                 <textarea
+
                   type="text"
                   id="myTextarea"
                   className={` text-mono opacity-0 resize-none text-justify focus:outline-none text-black text-3xl  text-transparent bg-transparent border-hidden absolute w-full h-full top-0 left-0 cursor-text  caret-[#1fc8c5]  `}
@@ -552,14 +553,12 @@ const MainPart = () => {
                     {characters.map((char, index) => (
                       <span
                         key={index}
-                        className={`  ${
-                          index === charIndex
+                        className={`  ${index === charIndex
                             ? "border-l-4 border-[#1fc8c5] animate-blink"
                             : ""
-                        }
-                         ${
-                           isCorrect(index) ? "text-[#ffffff] font-bold" : ""
-                         } ${isIncorrect(index) ? "bg-red-500" : ""}`}
+                          }
+                         ${isCorrect(index) ? "text-[#ffffff] font-bold" : ""
+                          } ${isIncorrect(index) ? "bg-red-500" : ""}`}
                       >
                         {char}
                       </span>
@@ -571,14 +570,12 @@ const MainPart = () => {
                       <span
                         key={index}
                         className={`  
-                        ${
-                          index === charIndex
+                        ${index === charIndex
                             ? "border-l-4 border-[#1fc8c5] animate-blink"
                             : ""
-                        }
-                        ${isCorrect(index) ? "text-[#ffffff] font-bold" : ""} ${
-                          isIncorrect(index) ? "bg-red-500" : ""
-                        }`}
+                          }
+                        ${isCorrect(index) ? "text-[#ffffff] font-bold" : ""} ${isIncorrect(index) ? "bg-red-500" : ""
+                          }`}
                       >
                         {char}
                       </span>
